@@ -6,7 +6,7 @@
 
 @layer base {
     body {
-        @apply font-[Poppins] text-white
+        @apply font-[Poppins] text-white overflow-auto
     }
 
     h1 {
@@ -26,6 +26,6 @@
     }
 
     header img {
-        @apply absolute w-full h-screen object-cover z-0
+        @apply absolute w-full h-screen object-cover
     }
 }

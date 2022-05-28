@@ -1,13 +1,14 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Header from "./components/Header";
+import {ParallaxProvider} from "react-scroll-parallax";
 
 const App = () => {
     return (
-        <div>
+        <ParallaxProvider>
             <Navbar/>
             <Header />
-        </div>
+        </ParallaxProvider>
     );
 };
 

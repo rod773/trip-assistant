@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <div className='md:flex justify-between items-center absolute w-full z-10 h-20 p-12'>
+        <div className='md:flex justify-between items-center absolute w-full z-10 h-5 p-10 rounded-lg bg-[#040613]/30'>
             <div className='md: flex justify-center'>
                 <h2>TRIPS.</h2>
             </div>
@@ -18,7 +18,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex'>
                     <input type="text" id="search-navbar"
-                           className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-sm focus:ring-gray-500 focus:border-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
+                           className="block p-2 pl-10 w-full text-gray-900 rounded-lg border sm:text-sm focus:ring-gray-500 focus:border-gray-500 bg-gray-700/10 border-gray-600 placeholder-white text-white focus:ring-gray-500 focus:border-gray-500"
                            placeholder="Search..."
                     />
                 </div>
