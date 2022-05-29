@@ -6,7 +6,7 @@
 
 @layer base {
     body {
-        @apply font-[Poppins] text-white overflow-auto
+        @apply font-[Poppins] text-white
     }
 
     h1 {
@@ -25,7 +25,7 @@
         @apply p-3 border rounded-lg
     }
 
-    header img {
+    img {
         @apply absolute w-full h-screen object-cover
     }
 }

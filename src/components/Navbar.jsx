@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
     return (
-        <div className='md:flex justify-between items-center absolute w-full z-10 h-5 p-10 rounded-lg bg-[#040613]/30'>
+        <div className='sm:flex justify-between items-center absolute w-full z-10 h-5 p-5 md:p-14'>
             <div className='md: flex justify-center'>
                 <h2>TRIPS.</h2>
             </div>
