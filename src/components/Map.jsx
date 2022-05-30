@@ -1,7 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import useMediaQuery from "../hooks/useMediaQuery";
-import {API_KEY} from "../utils/secretConsts";
 import mapStyles from './mapStyles'
 import restaurant from "../assets/restaurant.jpg";
 import Rating from '@material-ui/lab/Rating'
