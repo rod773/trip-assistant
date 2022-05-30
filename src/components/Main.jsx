@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import bgForest from '../assets/bgForest.png';
 import bgPart from '../assets/bgPart.png';
 import sun from '../assets/sun.png';
@@ -8,8 +8,8 @@ import List from '../components/List';
 import Map from '../components/Map';
 
 
-const Main = ({setCoordinates, coordinates, setBounds, places}) => {
-
+const Main = ({setCoordinates, coordinates, setBounds, places, isLoading, type, setType, rating, setRating, filteredPlaces, weatherData}) => {
+    const [childClicked, setChildClicked] = useState(null);
     const ref = useRef();
 
     return (
@@ -22,27 +22,27 @@ const Main = ({setCoordinates, coordinates, setBounds, places}) => {
                         style={{zIndex: '0'}}
                         onClick={() => ref.current.scrollTo(1)}
                     >
-                        <img src={bgForest} alt='bg'/>
+                        <img src={bgForest} className='absolute w-full h-screen object-cover' alt='bg'/>
                     </ParallaxLayer>
                     <ParallaxLayer
                         speed={-0.3}
                         style={{zIndex: '0'}}
                         onClick={() => ref.current.scrollTo(1)}
                     >
-                        <img src={sun} alt='sun'/>
+                        <img src={sun} className='absolute w-full h-screen object-cover' alt='sun'/>
                     </ParallaxLayer>
                     <ParallaxLayer
                         speed={-0.1}
                         style={{zIndex: '10'}}
                         onClick={() => ref.current.scrollTo(1)}
                     >
-                        <img src={bgPart} alt='bgPart'/>
+                        <img src={bgPart} className='absolute w-full h-screen object-cover' alt='bgPart'/>
                     </ParallaxLayer>
                     <ParallaxLayer
                         style={{zIndex: '20'}}
                         onClick={() => ref.current.scrollTo(1)}
                     >
-                        <img src={trees} alt='trees'/>
+                        <img src={trees} className='absolute w-full h-screen object-cover' alt='trees'/>
                     </ParallaxLayer>
                     <ParallaxLayer
                         offset={0}
@@ -66,8 +66,23 @@ const Main = ({setCoordinates, coordinates, setBounds, places}) => {
                     >
                         <div className='h-screen bg-[#040613]'>
                             <div className='grid grid-cols-1 md:grid-cols-2'>
-                                <List places={places}/>
-                                <Map places={places} setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates}/>
+                                <List
+                                    places={filteredPlaces.length ? filteredPlaces : places}
+                                    childClicked={childClicked}
+                                    isLoading={isLoading}
+                                    type={type}
+                                    setType={setType}
+                                    rating={rating}
+                                    setRating={setRating}
+                                />
+                                <Map
+                                    weatherData={weatherData}
+                                    setChildClicked={setChildClicked}
+                                    places={filteredPlaces.length ? filteredPlaces : places}
+                                    setCoordinates={setCoordinates}
+                                    setBounds={setBounds}
+                                    coordinates={coordinates}
+                                />
                             </div>
                         </div>
                     </ParallaxLayer>

@@ -1,7 +1,9 @@
 import React from 'react';
 import restaurant from '../assets/restaurant.jpg'
+import Rating from '@material-ui/lab/Rating'
 
-const PlaceDetails = ({place}) => {
+const PlaceDetails = ({place, selected, refProp}) => {
+    if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return (
         <div className="max-w-full rounded-lg border shadow-sm shadow-white/50 bg-gray-800 border-gray-700">
             <img
@@ -14,11 +16,15 @@ const PlaceDetails = ({place}) => {
                     <h5 className='mb-2 text-2xl font-bold tracking-tight text-white'>{place.name}</h5>
                 </div>
                 <div className='flex justify-between'>
+                    <Rating size='small' value={Number(place.rating)} readOnly/>
+                    <p className='mb-3 font-normal text-gray-400'>out of {place.num_reviews} reviews</p>
+                </div>
+                <div className='flex justify-between'>
                     <p className='mb-3 font-normal text-gray-400'>{place.price_level}</p>
                     <p className='mb-3 font-normal text-gray-400'>{place.price}</p>
                 </div>
                 <div className='flex justify-between sm: flex-none'>
-                    <div className='mb-3 font-normal text-gray-400'>Ranking: </div>
+                    <div className='mb-3 font-normal text-gray-400'>Ranking:</div>
                     <div className='mb-3 font-normal text-gray-400'>{place.ranking ? place.ranking :
                         <p> No Ranking</p>}
                     </div>

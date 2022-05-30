@@ -1,6 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Autocomplete} from "@react-google-maps/api";
 
-const Navbar = () => {
+const Navbar = ({setCoordinates}) => {
+    const [autocomplete, setAutocomplete] = useState(null)
+
+    const onLoad = (autoC) => setAutocomplete(autoC)
+    const onPlaceChanged = () => {
+        const lat = autocomplete.getPlace().geometry.location.lat();
+        const lng = autocomplete.getPlace().geometry.location.lng();
+        setCoordinates({lat, lng})
+    }
+
     return (
         <div className='sm:flex justify-between items-center absolute w-full z-10 h-5 p-5 md:p-14'>
             <div className='md: flex justify-center'>
@@ -17,10 +27,13 @@ const Navbar = () => {
                     </svg>
                 </div>
                 <div className='flex'>
-                    <input type="text" id="search-navbar"
-                           className="block p-2 pl-10 w-full text-gray-900 rounded-lg border sm:text-sm focus:ring-gray-500 focus:border-gray-500 bg-gray-700/10 border-gray-600 placeholder-white text-white focus:ring-gray-500 focus:border-gray-500"
-                           placeholder="Search..."
-                    />
+                    <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+                        <input type="text" id="search-navbar"
+                               className="block p-2 pl-10 w-full text-gray-900 rounded-lg border sm:text-sm focus:ring-gray-500 focus:border-gray-500 bg-gray-700/10 border-gray-600 placeholder-white text-white focus:ring-gray-500 focus:border-gray-500"
+                               placeholder="Search..."
+                        />
+                    </Autocomplete>
+
                 </div>
             </div>
         </div>
