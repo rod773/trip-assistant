@@ -3,11 +3,11 @@ import restaurant from '../assets/restaurant.jpg'
 
 const PlaceDetails = ({place}) => {
     return (
-        <div className="max-w-full rounded-lg border shadow-md bg-gray-800 border-gray-700">
+        <div className="max-w-full rounded-lg border shadow-sm shadow-white/50 bg-gray-800 border-gray-700">
             <img
-                className="rounded-t-lg h-80 relative"
+                className="rounded-t-lg h-80 relative absolute w-full h-screen object-cover"
                 src={place.photo ? place.photo.images.medium.url : restaurant}
-                alt="placeImage"
+                alt={place.name}
             />
             <div className='p-5'>
                 <div>

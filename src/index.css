@@ -24,8 +24,4 @@
     button {
         @apply p-3 border rounded-lg
     }
-
-    img {
-        @apply absolute w-full h-screen object-cover
-    }
 }

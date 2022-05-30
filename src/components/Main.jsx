@@ -67,7 +67,7 @@ const Main = ({setCoordinates, coordinates, setBounds, places}) => {
                         <div className='h-screen bg-[#040613]'>
                             <div className='grid grid-cols-1 md:grid-cols-2'>
                                 <List places={places}/>
-                                <Map setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates}/>
+                                <Map places={places} setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates}/>
                             </div>
                         </div>
                     </ParallaxLayer>
