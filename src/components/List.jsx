@@ -1,27 +1,16 @@
 import React, {useState} from 'react';
 import PlaceDetails from "./PlaceDetails";
 
-const List = () => {
+const List = ({places}) => {
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
 
-    const places = [
-        {name: 'Cool Place'},
-        {name: 'Best Coffee'},
-        {name: 'Best Stakes'},
-        {name: 'Cool Place'},
-        {name: 'Best Coffee'},
-        {name: 'Best Stakes'},
-        {name: 'Cool Place'},
-        {name: 'Best Coffee'},
-        {name: 'Best Stakes'},
-    ]
 
     return (
         <div className='py-28'>
             <div className='p-6'>
-                <h1>Restaurants, Hotels & Attractions around you</h1>
-                <form className='grid grid-cols-2 gap-4 pt-10'>
+                <h2>Restaurants, Hotels & Attractions around you</h2>
+                <form className='grid grid-cols-2 gap-4 pt-10 pr-6 pb-4'>
                     <div>
                         <label
                             htmlFor="restaurants"
@@ -52,9 +41,9 @@ const List = () => {
                         </select>
                     </div>
                 </form>
-                <div className='min-h-screen overflow-x-auto overflow-y-auto'>
+                <div className='h-screen overflow-auto flex flex-col'>
                     {places?.map((place, i) => (
-                        <div className='grid grid-cols-1 pt-8' key={i} >
+                        <div className='pt-8 pr-6' key={i}>
                             <PlaceDetails place={place}/>
                         </div>
                     ))}

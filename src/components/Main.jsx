@@ -8,7 +8,7 @@ import List from '../components/List';
 import Map from '../components/Map';
 
 
-const Main = () => {
+const Main = ({setCoordinates, coordinates, setBounds, places}) => {
 
     const ref = useRef();
 
@@ -62,11 +62,12 @@ const Main = () => {
                     </ParallaxLayer>
                     <ParallaxLayer
                         offset={2}
+                        style={{zIndex: '20'}}
                     >
                         <div className='h-screen bg-[#040613]'>
                             <div className='grid grid-cols-1 md:grid-cols-2'>
-                                <List/>
-                                <Map/>
+                                <List places={places}/>
+                                <Map setCoordinates={setCoordinates} setBounds={setBounds} coordinates={coordinates}/>
                             </div>
                         </div>
                     </ParallaxLayer>
