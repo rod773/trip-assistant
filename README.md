@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/github/languages/count/thesaddest/trip-assistant?style=flat-square) ![](https://img.shields.io/github/languages/top/thesaddest/trip-assistant?style=flat-square) 
 
-It is an app, which could help you with your next trip to wherever you want! It is fetching data from RapidAPI and showing you the nearest hotels, restaurants and attractions as well as weather around!
+It is an app, which could help you with your next trip to wherever you want! It is fetching data from Travel Advisor API, Google Maps API, Weather API and showing you the nearest hotels, restaurants and attractions as well as weather around!
 
 ![](https://i.ibb.co/SXjhf02/responsive.png)
 
